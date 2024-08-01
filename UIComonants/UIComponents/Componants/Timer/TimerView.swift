@@ -11,11 +11,16 @@ import Combine
 
 public struct AuthTimer: View {
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @Binding var countTimer: CountTimer
+    @Binding public var countTimer: CountTimer
     @StateObject private var whatch = Whatch()
     @State private var canSend: CountTimerStateEnum = .wait
     
-    let callBack: () -> Void
+    public let callBack: () -> Void
+    
+    public init(countTimer: Binding<CountTimer>, callBack: @escaping () -> Void) {
+        self._countTimer = countTimer
+        self.callBack = callBack
+    }
     
     public var body: some View {
         VStack(content: {

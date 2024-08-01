@@ -11,6 +11,10 @@ public struct ChequeNumberView: View {
     @State public var number: Int
     private var size: CGFloat { return 150 }
     
+    public init(number: Int) {
+        self.number = number
+    }
+    
     public var body: some View {
         Circle()
             .frame(width: size)
