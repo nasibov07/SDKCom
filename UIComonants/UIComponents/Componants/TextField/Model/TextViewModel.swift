@@ -10,21 +10,21 @@ import UIKit
 import SwiftUI
 
 public struct ObjectContent {
-    var text: String
-    var maxLimitValue: Int
-    var minLimitValue: Int
-    var title: String
-    var placeholder: String
-    var keyboardActive: Bool
-    var fieldEnum: CustomTextFieldEnum
-    var state: TextFilderState
-    var message: ObjectMessage
-    var keyboardType: UIKeyboardType
-    var disabled: Bool
-    var countTimer: CountTimer
-    var sheaker: CGFloat
-    var mandatory: Bool
-    var isEmpty: Bool { return text.isEmpty ? true : false }
+    public var text: String
+    public var maxLimitValue: Int
+    public var minLimitValue: Int
+    public var title: String
+    public var placeholder: String
+    public var keyboardActive: Bool
+    public var fieldEnum: CustomTextFieldEnum
+    public var state: TextFilderState
+    public var message: ObjectMessage
+    public var keyboardType: UIKeyboardType
+    public var disabled: Bool
+    public var countTimer: CountTimer
+    public var sheaker: CGFloat
+    public var mandatory: Bool
+    public var isEmpty: Bool { return text.isEmpty ? true : false }
     
     public init(
         text: String = "",
@@ -57,12 +57,12 @@ public struct ObjectContent {
             self.mandatory = mandatory
         }
     
-    mutating func sayError() {
+    public mutating func sayError() {
         state = .error
         message = ObjectMessage(id: 0, title: "Ошибка", show: true, state: .error)
     }
     
-    mutating func sayEmpty(){
+    public mutating func sayEmpty(){
         guard isEmpty else { return }
         state = .error
         message = ObjectMessage(id: 0, title: "Заполните поле", show: true, state: .error)
@@ -70,9 +70,9 @@ public struct ObjectContent {
 }
 
 public struct CountTimer {
-    var canSend: CountTimerStateEnum
-    var canSendCount: Int = 3
-    var expired: Int = 0
+    public var canSend: CountTimerStateEnum
+    public var canSendCount: Int = 3
+    public var expired: Int = 0
     
     public init(canSend: CountTimerStateEnum, canSendCount: Int, expired: Int) {
         self.canSend = canSend
@@ -83,10 +83,10 @@ public struct CountTimer {
 
 public struct ObjectMessage: Identifiable {
     public var id: Int
-    var title: String?
-    var show: Bool
-    var state: TextFilderState
-    var icon: (error: String?, success: String?)
+    public var title: String?
+    public var show: Bool
+    public var state: TextFilderState
+    public var icon: (error: String?, success: String?)
     
     public init(id: Int, title: String? = nil, show: Bool = false, state: TextFilderState = .normal, icon: (error: String?, success: String?) = (nil,nil)) {
         self.id = id
@@ -98,10 +98,10 @@ public struct ObjectMessage: Identifiable {
 }
 
 public struct ObjectStateSetting {
-    var foregroundColor: Color
-    var backgroundColor: Color
-    var borderColor: Color
-    var borderWidth: Int
+    public var foregroundColor: Color
+    public var backgroundColor: Color
+    public var borderColor: Color
+    public var borderWidth: Int
     
     public init(foregroundColor: Color, backgroundColor: Color, borderColor: Color, borderWidth: Int) {
         self.foregroundColor = foregroundColor

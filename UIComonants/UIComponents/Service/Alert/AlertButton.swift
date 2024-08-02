@@ -1,23 +1,23 @@
 import Foundation
 
-struct AlertButton: Identifiable {
-    var id = UUID().uuidString
-    let action: () -> ()
-    let appearance: AlertButtonAppearance
+public struct AlertButton: Identifiable {
+    public var id = UUID().uuidString
+    public let action: () -> ()
+    public let appearance: AlertButtonAppearance
 }
 
-enum AlertButtonAppearance {
+public enum AlertButtonAppearance {
     case base(AlertButtonType)
     case custom(String)
     
-    var title: String {
+    public var title: String {
         switch self {
         case .base(let alertButtonType): return alertButtonType.rawValue
         case .custom(let string): return string
         }
     }
     
-    var type: AlertButtonType {
+    public var type: AlertButtonType {
         switch self {
         case .base(let alertButtonType): return alertButtonType
         case .custom(_): return AlertButtonType.normal
@@ -25,7 +25,7 @@ enum AlertButtonAppearance {
     }
 }
 
-enum AlertButtonType: String {
+public enum AlertButtonType: String {
     case cancel = "Отменить"
     case copy = "Скопировать сообщение"
     case normal

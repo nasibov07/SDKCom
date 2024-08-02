@@ -18,7 +18,7 @@ extension Double {
     /// 10000.asString(style: .full)                // 2 hours, 46 minutes, 40 seconds
     /// 10000.asString(style: .spellOut)       // two hours, forty-six minutes, forty seconds
     /// 10000.asString(style: .brief)              // 2hr 46min 40sec
-    func asString(style: DateComponentsFormatter.UnitsStyle) -> String {
+    public func asString(style: DateComponentsFormatter.UnitsStyle) -> String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second, .nanosecond]
         formatter.unitsStyle = style

@@ -7,18 +7,18 @@
 
 import Foundation
 
-enum KeychainError: Error {
+public enum KeychainError: Error {
     case duplicateItem
     case unknown(status: OSStatus)
 }
 
 public class KeychainService {
-    enum AccountType: String {
+    public enum AccountType: String {
         case xToken = "X-Token"     //Authorisation Token for Content-Type
         case sToken = "SMS-Token"      //Token for get sms code
     }
     
-    static func save(data: Data, account: AccountType) throws -> String {
+    public static func save(data: Data, account: AccountType) throws -> String {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccount: account.rawValue,
@@ -32,7 +32,7 @@ public class KeychainService {
         return "Saved"
     }
     
-    static func getTokenFromKeychain(for account: AccountType) throws -> Data? {
+    public static func getTokenFromKeychain(for account: AccountType) throws -> Data? {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccount: account.rawValue,
@@ -45,7 +45,7 @@ public class KeychainService {
         return result as? Data
     }
     
-    static func deleteData(account: AccountType) throws {
+    public static func deleteData(account: AccountType) throws {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccount: account.rawValue,

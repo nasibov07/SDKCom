@@ -8,12 +8,21 @@
 import SwiftUI
 
 public struct FieldValueView: View {
-    @State var imageView: Image?
-    @State var title: String?
-    @State var comment: String?
-    @State var description: String?
-    @State var edit: Bool?
-    @State var warning: Bool?
+    @State public var imageView: Image?
+    @State public var title: String?
+    @State public var comment: String?
+    @State public var description: String?
+    @State public var edit: Bool?
+    @State public var warning: Bool?
+    
+    public init(imageView: Image? = nil, title: String? = nil, comment: String? = nil, description: String? = nil, edit: Bool? = nil, warning: Bool? = nil) {
+        self.imageView = imageView
+        self.title = title
+        self.comment = comment
+        self.description = description
+        self.edit = edit
+        self.warning = warning
+    }
     
     public var body: some View {
         VStack(alignment: .leading) {

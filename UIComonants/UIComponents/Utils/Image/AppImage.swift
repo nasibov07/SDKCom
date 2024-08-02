@@ -6,7 +6,7 @@ import SwiftUI
 /// ```
 /// Пример: SDKIcon.gid
 /// ```
-enum AppImage: String {
+public enum AppImage: String {
     case offShowPassword = "offShowPassword"
     case onShowPassword = "onShowPassword"
     case logoBarber = "logoBratishka"
@@ -20,5 +20,5 @@ enum AppImage: String {
     case cheque = "cheque"
     case queue = "queue"
     
-    var image: Image { Image(self.rawValue) }
+    public var image: Image { Image(self.rawValue) }
 }

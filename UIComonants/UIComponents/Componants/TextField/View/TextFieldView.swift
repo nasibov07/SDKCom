@@ -9,13 +9,24 @@ import Foundation
 import SwiftUI
 
 public struct CustomTextFieldView: View {
-    @State var frame: (width: CGFloat, height: CGFloat)
+    @State public var frame: (width: CGFloat, height: CGFloat)
     @State private var showPassword: Bool = true
     @State private var textCount: Int = 0
-    @FocusState var amountIsFocused: Bool
-    @Binding var object: ObjectContent
-     
-    let onClickTimer: () -> ()
+    @FocusState public var amountIsFocused: Bool
+    @Binding public var object: ObjectContent
+    
+    public let onClickTimer: () -> ()
+    
+    public init(frame:(width: CGFloat, height: CGFloat),
+                amountIsFocused: FocusState<Bool>,
+                object: Binding<ObjectContent>,
+                onClickTimer: @escaping () -> Void) {
+        self.frame = frame
+        self._amountIsFocused = amountIsFocused
+        self._object = object
+        self.onClickTimer = onClickTimer
+    }
+
      
     public var body: some View {
         ZStack {
@@ -177,7 +188,7 @@ public struct CustomTextFieldView: View {
 
 struct CustomTextFieldView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTextFieldView(frame: (400,0),
+        CustomTextFieldView(frame: (400,0), amountIsFocused: .init(),
                             object: .constant(ObjectContent(title: ".enterPassword",
                                                             placeholder: TitleObject.password.rawValue,
                                                             message: ObjectMessage(id: 0)))){ }

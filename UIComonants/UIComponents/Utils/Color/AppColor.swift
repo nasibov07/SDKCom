@@ -6,7 +6,7 @@ import SwiftUI
 /// ```
 /// Пример: SDKColor.GIDBlue
 /// ```
-enum AppColor: String {
+public enum AppColor: String {
     case AppBlue
     case AppWhite
     case AppRed
@@ -15,7 +15,7 @@ enum AppColor: String {
     case AppDark
     case AppBackground
      
-    var color: Color { Color(self.rawValue) }
-    var kitColor: UIColor { UIColor(named: self.rawValue) ?? UIColor() }
+    public var color: Color { Color(self.rawValue) }
+    public var kitColor: UIColor { UIColor(named: self.rawValue) ?? UIColor() }
 }
 

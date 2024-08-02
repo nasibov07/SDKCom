@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-public struct ButtonView: View {
-    @Binding public var state: ButtonState
-    @State public var title: TitleObject
-    @State public var width: CGFloat
+struct ButtonView: View {
+    @Binding  var state: ButtonState
+    @State  var title: TitleObject
+    @State  var width: CGFloat
     
-    public init(state: Binding<ButtonState>, title: TitleObject, width: CGFloat) {
+     init(state: Binding<ButtonState>, title: TitleObject, width: CGFloat) {
         self._state = state
         self.title = title
         self.width = width
     }
     
-    public var body: some View {
+     var body: some View {
         VStack {
             if state != .load  {
                 Text(title.rawValue)
@@ -39,14 +39,14 @@ public struct ButtonView: View {
     ButtonView(state: .constant(.load), title: .next, width: UIScreen.main.bounds.width - 40)
 }
 
-public enum ButtonState {
+enum ButtonState {
     case activeBlue
     case activeWhite
     case disable
     case activeRed
     case load
     
-    public var background: Color {
+    var background: Color {
         switch self {
         case .activeBlue:
             return AppColor.AppBlue.color
@@ -61,7 +61,7 @@ public enum ButtonState {
         }
     }
     
-    public var foreground: Color {
+    var foreground: Color {
         switch self {
         case .activeBlue:
             return AppColor.AppWhite.color
