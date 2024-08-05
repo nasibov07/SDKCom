@@ -345,8 +345,6 @@
 		958175572C5B8EFA0071C638 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9581757F2C5B9B340071C638 /* ex+Double */,
-				958175852C5B9B340071C638 /* ex+String */,
 				958175812C5B9B340071C638 /* Fonts */,
 				958175792C5B9A690071C638 /* Alert */,
 				958175742C5B99970071C638 /* KeychainService */,
@@ -408,6 +406,8 @@
 		9581757D2C5B9A9A0071C638 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9581757F2C5B9B340071C638 /* ex+Double */,
+				958175852C5B9B340071C638 /* ex+String */,
 				9581754C2C5B8D950071C638 /* Color */,
 				9581754F2C5B8DA90071C638 /* Image */,
 				9581755C2C5B91090071C638 /* Animation */,
