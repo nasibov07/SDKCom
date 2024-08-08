@@ -5,7 +5,6 @@
 //  Created by Ровшан Насибов on 31.03.2024.
 //
 
-import Foundation
 import SwiftUI
 
 public struct CustomTextFieldView: View {

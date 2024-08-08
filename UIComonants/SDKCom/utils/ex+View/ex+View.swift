@@ -5,8 +5,6 @@
 //  Created by Ровшан Насибов on 31.03.2024.
 //
 
-import Foundation
-import UIKit
 import SwiftUI
 
 extension View {
@@ -98,10 +96,9 @@ extension View {
     public func keyboardDismiss(){
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    
-    public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
-        let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
-        return clipShape(roundedRect).overlay(roundedRect.strokeBorder(content, lineWidth: width))
-    }
+	
+	public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
+		let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
+		return clipShape(roundedRect).overlay(roundedRect.strokeBorder(content, lineWidth: width))
+	}
 }
-

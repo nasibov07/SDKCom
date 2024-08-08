@@ -5,7 +5,6 @@
 //  Created by Ровшан Насибов on 06.08.2024.
 //
 
-import Foundation
 import SwiftUI
 
 public enum ButtonState {
