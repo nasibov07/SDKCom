@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		066BC1632C6427390055E150 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 958175512C5B8DC70071C638 /* Media.xcassets */; };
+		066BC1652C655BFF0055E150 /* View+modifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BC1642C655BFF0055E150 /* View+modifire.swift */; };
 		95060B3A2C62418400942EFA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95060B392C62418400942EFA /* TimerViewModel.swift */; };
 		95060B3C2C62419C00942EFA /* TimerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95060B3B2C62419C00942EFA /* TimerModels.swift */; };
 		958174F82C5B8C260071C638 /* SDKCom.docc in Sources */ = {isa = PBXBuildFile; fileRef = 958174F72C5B8C260071C638 /* SDKCom.docc */; };
@@ -86,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		066BC1642C655BFF0055E150 /* View+modifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+modifire.swift"; sourceTree = "<group>"; };
 		95060B392C62418400942EFA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		95060B3B2C62419C00942EFA /* TimerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModels.swift; sourceTree = "<group>"; };
 		958174F32C5B8C260071C638 /* SDKCom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDKCom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -436,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				958175582C5B8F8A0071C638 /* ex+View.swift */,
+				066BC1642C655BFF0055E150 /* View+modifire.swift */,
 			);
 			path = "ex+View";
 			sourceTree = "<group>";
@@ -725,6 +729,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95BA7DA52C6246E60006C9A4 /* Preview Assets.xcassets in Resources */,
+				066BC1632C6427390055E150 /* Media.xcassets in Resources */,
 				95BA7DA22C6246E60006C9A4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -757,6 +762,7 @@
 				9581757A2C5B9A690071C638 /* AlertButton.swift in Sources */,
 				958175462C5B8CD20071C638 /* TitleObject.swift in Sources */,
 				958175372C5B8CD20071C638 /* ButtonView.swift in Sources */,
+				066BC1652C655BFF0055E150 /* View+modifire.swift in Sources */,
 				958175422C5B8CD20071C638 /* FieldMessageCell.swift in Sources */,
 				958175432C5B8CD20071C638 /* TextFieldView.swift in Sources */,
 				9581754D2C5B8D960071C638 /* AppColor.swift in Sources */,

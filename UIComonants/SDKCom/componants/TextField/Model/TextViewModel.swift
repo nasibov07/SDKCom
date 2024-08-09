@@ -5,8 +5,6 @@
 //  Created by Ровшан Насибов on 31.03.2024.
 //
 
-import Foundation
-import UIKit
 import SwiftUI
 
 public struct ObjectContent {

@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct ChequeNumberView: View {
     @State public var number: Int
-    private var size: CGFloat { return 150 }
+    private var size: CGFloat { 150 }
     
     public init(number: Int) {
         self.number = number
@@ -25,7 +25,7 @@ public struct ChequeNumberView: View {
                         .resizable()
                         .frame(maxWidth: size - 60, maxHeight: size - 35)
                     
-                    Text("\(number)")
+					Text(number.formatted())
                         .bold()
                         .foregroundStyle(AppColor.AppBlue.color)
                         .font(.system(size: 38))

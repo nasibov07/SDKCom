@@ -15,7 +15,9 @@ public enum AppColor: String {
     case AppDark
     case AppBackground
      
-    public var color: Color { Color(self.rawValue) }
+	public var color: Color {
+		Color(self.rawValue)
+	}
     public var kitColor: UIColor { UIColor(named: self.rawValue) ?? UIColor() }
 }
 

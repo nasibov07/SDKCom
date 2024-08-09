@@ -10,7 +10,8 @@ import SDKCom
 
 struct MainScreen: View {
     @StateObject private var vm: MainScreenViewModel = .init()
-    
+	@State private var buttonState: ButtonState = .activeBlue
+	@State private var isShow = false
     @FocusState var amountIsFocused: Bool
     
     var body: some View {
@@ -28,6 +29,24 @@ struct MainScreen: View {
                     object: $vm.nameField) {
                     
                 }
+				
+				ButtonView(
+					state: $buttonState,
+					title: TitleObject.editEmail,
+					width: 200
+				)
+				.onTapGesture {
+					isShow.toggle()
+				}
+				.sheetModifier(
+					isShow: $isShow,
+					sheetData: SheetViewModel(
+						title: "Это что такое??",
+						subTitle: "Супер золотое",
+						isShow: true,
+						buttons: []
+					)
+				)
                 
                 Spacer()
             })

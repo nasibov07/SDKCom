@@ -8,10 +8,22 @@
 import Foundation
  
 public struct SheetViewModel {
-    var title: String
+   	var title: String
     var subTitle: String? = nil
     var isShow: Bool = false
     var buttons: [SheetViewButtonModel]? = nil
+	
+	public init(
+		title: String,
+		subTitle: String? = nil,
+		isShow: Bool = false,
+		buttons: [SheetViewButtonModel]? = nil
+	) {
+		self.title = title
+		self.subTitle = subTitle
+		self.isShow = isShow
+		self.buttons = buttons
+	}
 }
 
 public struct SheetViewButtonModel: Identifiable {
