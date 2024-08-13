@@ -19,6 +19,13 @@ public enum AppImage: String {
     case barber = "barber"
     case cheque = "cheque"
     case queue = "queue"
+	
+	public var image: Image {
+		Image(self.rawValue, bundle: bundle)
+	}
+	
+	private var bundle: Bundle {
+		Bundle(identifier: "nasibov.SDKCom")!
+	}
     
-    public var image: Image { Image(self.rawValue) }
 }

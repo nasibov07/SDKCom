@@ -14,10 +14,17 @@ public enum AppColor: String {
     case AppGray
     case AppDark
     case AppBackground
-     
+	
+	
 	public var color: Color {
-		Color(self.rawValue)
+		Color(self.rawValue, bundle: bundle)
 	}
-    public var kitColor: UIColor { UIColor(named: self.rawValue) ?? UIColor() }
+	public var kitColor: UIColor {
+		UIColor(named: self.rawValue) ?? UIColor()
+	}
+	
+	private var bundle: Bundle {
+		Bundle(identifier: "nasibov.SDKCom")!
+	}
 }
 
