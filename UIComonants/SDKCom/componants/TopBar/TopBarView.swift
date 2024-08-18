@@ -8,23 +8,26 @@
 import SwiftUI
 
 public struct TopBarView: View {
-    @State public var title: String
-    @State public var showArrow: Bool
+    public var title: String
+    public var showArrow: Bool
     public let backButton: () -> ()
     
-    public init(title: String, showArrow: Bool = true,backButton: @escaping () -> Void) {
+    public init(
+		title: String,
+		showArrow: Bool = true,
+		backButton: @escaping () -> Void
+	) {
         self.title = title
         self.showArrow = showArrow
         self.backButton = backButton
     }
     
     public var body: some View {
-        VStack(spacing: 20){
+        VStack(spacing: 20) {
             ZStack {
                 if showArrow { arrowScreen() }
                 logoScreen()
             }
-            
             titleScreen()
         }
         .frame(width: getWidth())

@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Foundation
-import Combine
 
 public struct AuthTimer: View {
     public typealias CallBackBlock = () -> Void
@@ -17,15 +15,15 @@ public struct AuthTimer: View {
     @StateObject private var watch = Watch()
     
     public let callBack: CallBackBlock
-    
-    public init(countTimer: Binding<CountTimer>, callBack: @escaping CallBackBlock) {
-        self._countTimer = countTimer
-        self.callBack = callBack
-    }
+//    
+//    public init(countTimer: Binding<CountTimer>, callBack: @escaping CallBackBlock) {
+//        self._countTimer = countTimer
+//        self.callBack = callBack
+//    }
     
     public var body: some View {
-        VStack(content: {
-            HStack(content: {
+        VStack {
+            HStack {
                 Text(countTimer.canSend.title)
                     .onTapGesture {
                         if countTimer.canSend == .send {
@@ -34,18 +32,18 @@ public struct AuthTimer: View {
                         }
                     }
                 
-                if (countTimer.canSend == .wait) {
-                    Text(watch.time)
+                if countTimer.canSend == .wait {
+					clockView()
                 }
-            })
+            }
             .foregroundColor(countTimer.canSend.foregroundColor)
             .font(.system(size: 14))
             .multilineTextAlignment(.leading)
             .frame(width: getWidth() - 40, height: 30, alignment: .center)
-        })
-        .onChange(of: watch.isActive, perform: { newValue in
-            watch.isActive == true ? (countTimer.canSend = .wait) : (countTimer.canSend = .send)
-        })
+        }
+        .onChange(of: watch.isActive) { newValue in
+			countTimer.canSend = watch.isActive ? .wait : .send
+        }
         .onChange(of: countTimer.canSend) { newValue in
             guard countTimer.canSend == .wait else { return }
             watch.start(minutes: Float(countTimer.expired/60))
@@ -56,16 +54,25 @@ public struct AuthTimer: View {
         .onReceive(timer) { _ in
             watch.updateCountdown()
         }
-        .onChange(of: watch.minutes, perform: { input in
-            if watch.minutes == 0 {
-                self.countTimer.canSend = .send
-            }
-        })
+//        .onChange(of: watch.minutes, perform: { input in
+//            if watch.minutes == 0 {
+//                self.countTimer.canSend = .send
+//            }
+//        })
     }
+	
+	private func clockView() -> some View {
+		Text(watch.time)
+			.onChange(of: watch.minutes) { input in
+				if watch.minutes == 0 {
+					countTimer.canSend = .send
+				}
+			}
+	}
     
     private func getHours(sec: Int) -> String {
         let getHours = (sec / 3600)
-        return "\(getHours)"
+		return getHours.formatted()
     }
 
     private func getMinuts(sec: Int) -> String {

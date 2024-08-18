@@ -8,17 +8,10 @@
 import SwiftUI
 
 public struct ListValue: View {
-    @State public var title: String?
-    @Binding public var list: [String]
+	@Binding public var list: [String]
+	
+    public var title: String?
     public let callBack: (_ value: String) -> ()
-    
-    public init(title: String? = nil,
-         list: Binding<[String]>,
-         callBack: @escaping (_ value: String) -> Void) {
-        self.title = title
-        self._list = list
-        self.callBack = callBack
-    }
     
     public var body: some View {
         List{
@@ -43,5 +36,5 @@ public struct ListValue: View {
 }
 
 #Preview {
-    ListValue(title: "Город", list: .constant(["asf","asdf","asf"]), callBack: { _ in})
+	ListValue(list: .constant(["asf","asdf","asf"]), title: "Город", callBack: { _ in})
 }

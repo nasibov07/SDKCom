@@ -8,21 +8,13 @@
 import SwiftUI
 
 public struct FieldValueView: View {
-    @State public var imageView: Image?
-    @State public var title: String?
-    @State public var comment: String?
-    @State public var description: String?
-    @State public var edit: Bool?
-    @State public var warning: Bool?
-    
-    public init(imageView: Image? = nil, title: String? = nil, comment: String? = nil, description: String? = nil, edit: Bool? = nil, warning: Bool? = nil) {
-        self.imageView = imageView
-        self.title = title
-        self.comment = comment
-        self.description = description
-        self.edit = edit
-        self.warning = warning
-    }
+	@Binding public var title: String?
+	
+    public var imageView: Image?
+    public var comment: String?
+    public var description: String?
+    public var edit: Bool?
+    public var warning: Bool?
     
     public var body: some View {
         VStack(alignment: .leading) {
@@ -35,12 +27,15 @@ public struct FieldValueView: View {
                  
                 VStack(alignment: .leading) {
                     if let title = title {
-                        Text(title).bold().font(.system(size: 16))
+                        Text(title)
+							.bold()
+							.font(.system(size: 16))
+							.frame(alignment: .leading)
                     }
                      
                     if let value = comment {
                         Text(value)
-                            .font(.system(size: 14))
+                            .font(.system(size: 16))
                             .foregroundStyle(AppColor.AppGray.color)
                     }
                     
@@ -51,7 +46,7 @@ public struct FieldValueView: View {
                     }
                 }
                 
-                if let _ = edit, edit == true {
+                if let edit = edit, edit {
                     Spacer()
                     Text("Изменить")
                         .bold()
@@ -60,7 +55,7 @@ public struct FieldValueView: View {
                 }
             }
             
-            if let _ = warning, warning == true {
+            if let warning = warning, warning {
                 HStack(spacing: 5, content: {
                     VStack {
                         AppImage.warning.image
@@ -87,5 +82,10 @@ public struct FieldValueView: View {
 }
 
 #Preview {
-    FieldValueView(imageView: AppImage.logoBarber.image, title: "Революционная, 156", comment: "Топ братишка", description: nil, warning: true)
+	FieldValueView(title: .constant("Революционная, 156"), 
+				   imageView: AppImage.logoBarber.image,
+				   comment: "Топ братишка",
+				   description: nil,
+				   edit: true,
+				   warning: true)
 }

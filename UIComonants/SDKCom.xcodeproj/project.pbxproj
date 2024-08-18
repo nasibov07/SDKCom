@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		066BC1632C6427390055E150 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 958175512C5B8DC70071C638 /* Media.xcassets */; };
 		066BC1652C655BFF0055E150 /* View+modifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BC1642C655BFF0055E150 /* View+modifire.swift */; };
+		066BC2E82C71EF900055E150 /* MapAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BC2E72C71EF900055E150 /* MapAppView.swift */; };
+		066BC2EA2C72901B0055E150 /* PhoneFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BC2E92C72901B0055E150 /* PhoneFormat.swift */; };
 		95060B3A2C62418400942EFA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95060B392C62418400942EFA /* TimerViewModel.swift */; };
 		95060B3C2C62419C00942EFA /* TimerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95060B3B2C62419C00942EFA /* TimerModels.swift */; };
 		958174F82C5B8C260071C638 /* SDKCom.docc in Sources */ = {isa = PBXBuildFile; fileRef = 958174F72C5B8C260071C638 /* SDKCom.docc */; };
@@ -89,6 +91,8 @@
 
 /* Begin PBXFileReference section */
 		066BC1642C655BFF0055E150 /* View+modifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+modifire.swift"; sourceTree = "<group>"; };
+		066BC2E72C71EF900055E150 /* MapAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppView.swift; sourceTree = "<group>"; };
+		066BC2E92C72901B0055E150 /* PhoneFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormat.swift; sourceTree = "<group>"; };
 		95060B392C62418400942EFA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		95060B3B2C62419C00942EFA /* TimerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModels.swift; sourceTree = "<group>"; };
 		958174F32C5B8C260071C638 /* SDKCom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDKCom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +168,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		066BC2E52C71EF6E0055E150 /* MapApp */ = {
+			isa = PBXGroup;
+			children = (
+				066BC2E62C71EF790055E150 /* Views */,
+			);
+			path = MapApp;
+			sourceTree = "<group>";
+		};
+		066BC2E62C71EF790055E150 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				066BC2E72C71EF900055E150 /* MapAppView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		95060B362C62409100942EFA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +253,8 @@
 		9581750F2C5B8CAF0071C638 /* componants */ = {
 			isa = PBXGroup;
 			children = (
+				958175792C5B9A690071C638 /* Alert */,
+				066BC2E52C71EF6E0055E150 /* MapApp */,
 				958175352C5B8CD20071C638 /* TopBar */,
 				958175112C5B8CD20071C638 /* Button */,
 				958175142C5B8CD20071C638 /* ChequeNumber */,
@@ -370,6 +392,7 @@
 				958175282C5B8CD20071C638 /* Model */,
 				9581752B2C5B8CD20071C638 /* View */,
 				9581752D2C5B8CD20071C638 /* ViewModel */,
+				066BC2E92C72901B0055E150 /* PhoneFormat.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -429,7 +452,6 @@
 			isa = PBXGroup;
 			children = (
 				958175812C5B9B340071C638 /* Fonts */,
-				958175792C5B9A690071C638 /* Alert */,
 				958175742C5B99970071C638 /* KeychainService */,
 			);
 			path = service;
@@ -484,7 +506,8 @@
 				958175772C5B9A690071C638 /* AlertView.swift */,
 				958175782C5B9A690071C638 /* AppAlert.swift */,
 			);
-			path = Alert;
+			name = Alert;
+			path = ../service/Alert;
 			sourceTree = "<group>";
 		};
 		9581757D2C5B9A9A0071C638 /* utils */ = {
@@ -672,7 +695,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					958174F22C5B8C260071C638 = {
 						CreatedOnToolsVersion = 15.3;
@@ -761,7 +784,9 @@
 				958175442C5B8CD20071C638 /* CustomTextFieldVM.swift in Sources */,
 				9581757A2C5B9A690071C638 /* AlertButton.swift in Sources */,
 				958175462C5B8CD20071C638 /* TitleObject.swift in Sources */,
+				066BC2EA2C72901B0055E150 /* PhoneFormat.swift in Sources */,
 				958175372C5B8CD20071C638 /* ButtonView.swift in Sources */,
+				066BC2E82C71EF900055E150 /* MapAppView.swift in Sources */,
 				066BC1652C655BFF0055E150 /* View+modifire.swift in Sources */,
 				958175422C5B8CD20071C638 /* FieldMessageCell.swift in Sources */,
 				958175432C5B8CD20071C638 /* TextFieldView.swift in Sources */,
@@ -941,6 +966,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -979,6 +1005,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

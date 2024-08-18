@@ -21,19 +21,20 @@ public struct SheetModifier: ViewModifier {
                 .font(.body)
             
             Button(action: {}, label: {})
-                .sheet(isPresented: $isShow, content: {
+                .sheet(isPresented: $isShow) {
 					SheetView(isShow: $isShow,
 							  title: sheetData.title,
 							  subTitle: sheetData.subTitle,
 							  buttons: sheetData.buttons)
                         .presentationDetents([.fraction(0.4),.medium])
                         .presentationDragIndicator(.automatic)
-                })
+                }
         }
     }
 }
 
 #Preview {
 	 Text("Hi")
-		.sheetModifier(isShow: .constant(true), sheetData: SheetViewModel(title: "Text"))
+		.sheetModifier(isShow: .constant(true), 
+					   sheetData: SheetViewModel(title: "Text"))
 }

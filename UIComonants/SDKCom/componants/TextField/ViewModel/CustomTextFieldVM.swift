@@ -16,26 +16,25 @@ extension CustomTextFieldVM {
             }
             
             if obj.fieldEnum != .phoneField {
-                guard obj.text.contains(" ") != true else {
+                guard !obj.text.contains(" ") else {
                     setValueMessageField(in: &obj, objectState: .error, messageTitle: TitleObject.whitespace.rawValue)
                     return
                 }
             }
             
             //TODO: - Имправиить
-            guard (count >= obj.minLimitValue) else {
+            guard count >= obj.minLimitValue else {
                 setValueMessageField(in: &obj, objectState: .error, messageTitle: "Длина поля не менее \(obj.minLimitValue) символов")
                 return
             }
             
-            guard (count <= obj.maxLimitValue) else {
+            guard count <= obj.maxLimitValue else {
                 setValueMessageField(in: &obj, objectState: .error, messageTitle: "Длина поля не более \(obj.maxLimitValue) символов")
                 return
             }
             
-            // Почта подходит под стандарт или нет
             if obj.fieldEnum == .emailField {
-                guard obj.text.isValidEmail() == true else {
+                guard obj.text.isValidEmail() else {
                     setValueMessageField(in: &obj, objectState: .error, messageTitle: TitleObject.emailInvalid.rawValue)
                     return
                 }
@@ -101,78 +100,31 @@ extension CustomTextFieldVM {
             switch text.count {
             case 1:  do {
                 let number = (text == "7") ? "+7" : "+7\(text)"
-                obj.text = format(phoneNumber: number, shouldRemoveLastDigit: false) }
+				obj.text = PhoneFormat.format(phoneNumber: number, shouldRemoveLastDigit: false) }
             case 2:  do {
                 let number = (text == "+7") ? "+7" : "+7\(text)"
-                obj.text = format(phoneNumber: number, shouldRemoveLastDigit: false) }
+				obj.text = PhoneFormat.format(phoneNumber: number, shouldRemoveLastDigit: false) }
             default: do {
-                obj.text = format(phoneNumber: text, shouldRemoveLastDigit: false) }
+				obj.text = PhoneFormat.format(phoneNumber: text, shouldRemoveLastDigit: false) }
             }
         } else {
             //Удаляется элемент
-            obj.text = format(phoneNumber: text, shouldRemoveLastDigit: true)
-        }
-    }
-}
-
-//MARK: - PhoneFormat
-extension CustomTextFieldVM {
-    class func format(phoneNumber: String, shouldRemoveLastDigit: Bool) -> String {
-        let regex = try! NSRegularExpression(pattern: "[\\+\\s-\\(\\)]", options: .caseInsensitive)
-        let maxСharLimit = 11
-        
-        guard !(shouldRemoveLastDigit && phoneNumber.count <= 0) else { return "" }
-        let range = NSString(string: phoneNumber).range(of: phoneNumber)
-        var number = regex.stringByReplacingMatches(in: phoneNumber,
-                                                    options: [],
-                                                    range: range,
-                                                    withTemplate: "")
-        
-        if number.count > maxСharLimit {
-            let maxIndex = number.index(number.startIndex, offsetBy: maxСharLimit)
-            number = String(number[number.startIndex..<maxIndex])
-        }
-        
-        if shouldRemoveLastDigit {
-            let maxIndex = number.index(number.startIndex, offsetBy: number.count)
-            number = String(number[number.startIndex..<maxIndex])
-        }
-        
-        let maxIndex = number.index(number.startIndex, offsetBy: number.count)
-        let regRange = number.startIndex..<maxIndex
-        
-        let type: NumberReg = processing(count: number.count)
-        
-        number = number.replacingOccurrences(of: type.pattern,
-                                             with: type.behaviour,
-                                             options: .regularExpression,
-                                             range: regRange)
-        
-        return "+" + number
-    }
-    
-    class func processing(count i: Int) -> NumberReg {
-        switch i {
-        case 0..<5:  return .firstStages
-        case 5..<8:  return .secondStages
-        case 8..<10: return .thereStages
-        default: return .fourthStages
+            obj.text = PhoneFormat.format(phoneNumber: text, shouldRemoveLastDigit: true)
         }
     }
 }
  
 extension CustomTextFieldVM {
     class func cheakEmailField(in obj: inout ObjectContent) -> Bool {
-        // Поле пусто или нет
-        guard obj.text.isEmpty != true else {
+
+        guard !obj.text.isEmpty else {
             setValueMessageField(in: &obj, objectState: .error, messageTitle: "Введите почту")
             return false
         }
 
         setValueMessageField(in: &obj, objectState: .fill, messageState: .normal, messageTitle: "")
         
-        // Почта подходит под стандарт или нет
-        guard obj.text.isValidEmail() == true else {
+        guard obj.text.isValidEmail() else {
             setValueMessageField(in: &obj, objectState: .error, messageTitle: "Почта не соответствует требованиям")
             return false
         }
@@ -180,3 +132,4 @@ extension CustomTextFieldVM {
         return true
     }
 }
+

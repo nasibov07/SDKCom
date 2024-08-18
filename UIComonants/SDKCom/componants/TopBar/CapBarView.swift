@@ -10,12 +10,16 @@ import SwiftUI
 public struct CapBarView: View {
     public typealias VoidBlock = () -> ()
     
-    @State public var title: String
-    @State public var showArrow: Bool
+    public var title: String
+    public var showArrow: Bool
     
     private let backButton: VoidBlock
     
-    public init(title: String, showArrow: Bool = true, backButton: @escaping VoidBlock) {
+    public init(
+		title: String,
+		showArrow: Bool = true,
+		backButton: @escaping VoidBlock
+	) {
         self.title = title
         self.showArrow = showArrow
         self.backButton = backButton

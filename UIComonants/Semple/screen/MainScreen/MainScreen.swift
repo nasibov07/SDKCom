@@ -31,7 +31,7 @@ struct MainScreen: View {
                 }
 				
 				ButtonView(
-					state: $buttonState,
+					state: buttonState,
 					title: TitleObject.editEmail,
 					width: 200
 				)

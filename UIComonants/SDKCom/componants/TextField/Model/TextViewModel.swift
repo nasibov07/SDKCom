@@ -22,7 +22,7 @@ public struct ObjectContent {
     public var countTimer: CountTimer
     public var sheaker: CGFloat
     public var mandatory: Bool
-    public var isEmpty: Bool { return text.isEmpty ? true : false }
+    public var isEmpty: Bool { text.isEmpty }
     
     public init(
         text: String = "",
@@ -69,8 +69,8 @@ public struct ObjectContent {
 
 public struct CountTimer {
     public var canSend: CountTimerStateEnum
-    public var canSendCount: Int = 3
-    public var expired: Int = 0
+    public var canSendCount = 3
+    public var expired = 0
     
     public init(canSend: CountTimerStateEnum, canSendCount: Int, expired: Int) {
         self.canSend = canSend
@@ -86,7 +86,13 @@ public struct ObjectMessage: Identifiable {
     public var state: TextFilderState
     public var icon: (error: String?, success: String?)
     
-    public init(id: Int, title: String? = nil, show: Bool = false, state: TextFilderState = .normal, icon: (error: String?, success: String?) = (nil,nil)) {
+    public init(
+		id: Int,
+		title: String? = nil,
+		show: Bool = false,
+		state: TextFilderState = .normal,
+		icon: (error: String?, success: String?) = (nil,nil)
+	) {
         self.id = id
         self.title = title
         self.show = show
@@ -101,7 +107,12 @@ public struct ObjectStateSetting {
     public var borderColor: Color
     public var borderWidth: Int
     
-    public init(foregroundColor: Color, backgroundColor: Color, borderColor: Color, borderWidth: Int) {
+    public init(
+		foregroundColor: Color,
+		backgroundColor: Color,
+		borderColor: Color,
+		borderWidth: Int
+	) {
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
         self.borderColor = borderColor
