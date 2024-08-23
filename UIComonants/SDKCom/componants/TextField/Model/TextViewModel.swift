@@ -38,7 +38,8 @@ public struct ObjectContent {
         disabled: Bool = false,
         countTimer: CountTimer = CountTimer(canSend: .wait, canSendCount: 3, expired: 60),
         sheaker: CGFloat = 0,
-        mandatory: Bool = false) {
+        mandatory: Bool = false
+	) {
             self.text = text
             self.maxLimitValue = maxLimitValue
             self.minLimitValue = minLimitValue

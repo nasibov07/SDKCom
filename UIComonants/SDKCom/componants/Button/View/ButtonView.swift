@@ -8,9 +8,9 @@
 import SwiftUI
 
 public struct ButtonView: View {
-    public var state: ButtonState
-    public var title: TitleObject
-    public var width: CGFloat
+    private let state: ButtonState
+    private let title: TitleObject
+    private let width: CGFloat
     
     public init(
 		state: ButtonState,

@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-public struct SheetView: View {
+struct SheetView: View {
 	@Binding var isShow: Bool
-	var title: String
+	let title: String
 	var subTitle: String?
 	var buttons: [SheetViewButtonModel]?
     
-    public var body: some View {
+    var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 15) {
                 Spacer().frame(width: 1, height: 10)

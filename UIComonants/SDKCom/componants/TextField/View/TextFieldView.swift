@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct CustomTextFieldView: View {
-	public var frame: (width: CGFloat, height: CGFloat)
+	public let frame: (width: CGFloat, height: CGFloat)
 	@State private var showPassword = true
 	@State private var textCount = 0
 	@FocusState public var amountIsFocused: Bool
@@ -16,10 +16,12 @@ public struct CustomTextFieldView: View {
 	
 	public let onClickTimer: () -> ()
 	
-	public init(frame:(width: CGFloat, height: CGFloat),
-				amountIsFocused: FocusState<Bool>,
-				object: Binding<ObjectContent>,
-				onClickTimer: @escaping () -> Void) {
+	public init(
+		frame:(width: CGFloat, height: CGFloat),
+		amountIsFocused: FocusState<Bool>,
+		object: Binding<ObjectContent>,
+		onClickTimer: @escaping () -> Void
+	) {
 		self.frame = frame
 		self._amountIsFocused = amountIsFocused
 		self._object = object

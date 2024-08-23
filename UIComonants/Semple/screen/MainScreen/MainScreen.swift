@@ -8,51 +8,75 @@
 import SwiftUI
 import SDKCom
 
+
 struct MainScreen: View {
-    @StateObject private var vm: MainScreenViewModel = .init()
-	@State private var buttonState: ButtonState = .activeBlue
-	@State private var isShow = false
-    @FocusState var amountIsFocused: Bool
-    
-    var body: some View {
-        ZStack {
-            VStack(content: {
-                TopBarView(title:  "Как вас зовут?", backButton: {
-                    
-                })
-                
-                Divider().padding()
-                
-                CustomTextFieldView(
-                    frame: (getWidth() - 30, 0),
-                    amountIsFocused: _amountIsFocused,
-                    object: $vm.nameField) {
-                    
-                }
-				
-				ButtonView(
-					state: buttonState,
-					title: TitleObject.editEmail,
-					width: 200
-				)
-				.onTapGesture {
-					isShow.toggle()
+	private enum SheetType: Identifiable {
+		case buttonView
+		case capBarView
+		case chequeNumberView
+		case listValue
+		case sheetModifier
+		case alertModifire
+		
+		var id: Int {
+			hashValue
+		}
+	}
+	
+	@State private var selectedSheet: SheetType?
+	
+	var body: some View {
+		Form {
+			Section {
+				Text("SDK Com")
+				Text("Описание либы")
+			}
+			
+			Section {
+				Button("Кнопка | Button") {
+					selectedSheet = .buttonView
 				}
-				.sheetModifier(
-					isShow: $isShow,
-					sheetData: SheetViewModel(
-						title: "Это что такое??",
-						subTitle: "Супер золотое",
-						isShow: true,
-						buttons: []
-					)
-				)
-                
-                Spacer()
-            })
-        }
-    }
+				
+				Button("Кнопка | Cap Bar") {
+					selectedSheet = .capBarView
+				}
+				
+				Button("Кнопка | Cheque Number") {
+					selectedSheet = .chequeNumberView
+				}
+				
+				Button("Кнопка | ListValue") {
+					selectedSheet = .listValue
+				}
+				
+				Button("Кнопка | SheetModifier") {
+					selectedSheet = .sheetModifier
+				}
+				
+				Button("Кнопка | AlertModifire") {
+					selectedSheet = .alertModifire
+				}
+			}
+		}
+		.sheet(item: $selectedSheet) { sheetType in
+			switch sheetType {
+			case .buttonView:
+				ButtonViewScreen()
+			case .capBarView:
+				CapBarViewScreen()
+			case .chequeNumberView:
+				ChequeNumberScreen()
+			case .listValue:
+				ListValueScreen()
+			case .sheetModifier:
+				SheetModifierScreen()
+			case .alertModifire:
+				AlertModifireScreen()
+			}
+		}
+	}
 }
+
 
 #Preview {
     MainScreen()

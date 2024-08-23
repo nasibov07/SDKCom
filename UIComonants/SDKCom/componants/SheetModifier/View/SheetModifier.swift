@@ -9,18 +9,11 @@ import SwiftUI
 
 public struct SheetModifier: ViewModifier {
 	@Binding var isShow: Bool
-	var sheetData: SheetViewModel
+	let sheetData: SheetViewModel
     
     public func body(content: Content) -> some View {
         ZStack {
             content
-                .frame(maxWidth: .infinity)
-                .frame(maxHeight: .infinity)
-                .background(AppColor.AppWhite.color)
-                .foregroundColor(AppColor.AppDark.color)
-                .font(.body)
-            
-            Button(action: {}, label: {})
                 .sheet(isPresented: $isShow) {
 					SheetView(isShow: $isShow,
 							  title: sheetData.title,

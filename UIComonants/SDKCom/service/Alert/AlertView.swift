@@ -6,11 +6,13 @@ public struct AlertView: ViewModifier {
     public func body(content: Content) -> some View {
         ZStack {
             content
-            if let _ = appAlert.alert { alert() }
+            if appAlert.alert != nil { alert() }
         }
     }
     
-    private var blurView: some View { Color.gray.opacity(0.2) }
+	private var blurView: some View {
+		Color.gray.opacity(0.2)
+	}
     
     @ViewBuilder
     private func alert() -> some View {
@@ -29,7 +31,7 @@ public struct AlertView: ViewModifier {
                         .font( .system(size: 14, weight: .medium) )
                         .padding(.leading).padding(.trailing)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(AppColor.AppWhite.color)
+                        .foregroundColor(AppColor.AppGray.color)
                         .padding(.bottom, 5)
                 }
                  
@@ -38,8 +40,12 @@ public struct AlertView: ViewModifier {
                         ForEach(buttons, id: \.id) { button in
                             alertButtonView(with: button.appearance.title) {
                                 button.action()
-                                if button.appearance.type == .copy { UIPasteboard.general.string = appAlert.alert?.subTitle }
-                                if button.appearance.type == .cancel { appAlert.remove() }
+								if button.appearance.type == .copy {
+									UIPasteboard.general.string = appAlert.alert?.subTitle
+								}
+								if button.appearance.type == .cancel {
+									appAlert.remove()
+								}
                             }
                         }
                     })

@@ -8,8 +8,12 @@
 import SwiftUI
 
 public struct ChequeNumberView: View {
-	public var number: Int
+	private let number: Int
 	private var size: CGFloat { 150 }
+	
+	public init(number: Int) {
+		self.number = number
+	}
 	
 	public var body: some View {
 		Circle()

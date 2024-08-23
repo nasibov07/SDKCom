@@ -8,13 +8,29 @@
 import SwiftUI
 
 public struct FieldValueView: View {
-	@Binding public var title: String?
+	public var title: String?
 	
     public var imageView: Image?
     public var comment: String?
     public var description: String?
     public var edit: Bool?
     public var warning: Bool?
+	
+	public init(
+		title: String? = nil,
+		imageView: Image? = nil,
+		comment: String? = nil,
+		description: String? = nil,
+		edit: Bool? = nil,
+		warning: Bool? = nil
+	) {
+		self.title = title
+		self.imageView = imageView
+		self.comment = comment
+		self.description = description
+		self.edit = edit
+		self.warning = warning
+	}
     
     public var body: some View {
         VStack(alignment: .leading) {
@@ -56,21 +72,7 @@ public struct FieldValueView: View {
             }
             
             if let warning = warning, warning {
-                HStack(spacing: 5, content: {
-                    VStack {
-                        AppImage.warning.image
-                            .resizable()
-                            .frame(width: 16, height: 16)
-                        Spacer()
-                    }.frame(height: 30)
-                    
-                    Text("Невозможно изменить. Для смены номера зарегистрируйтесь заново.")
-                        .font(.system(size: 14))
-                })
-                .frame(maxWidth: .infinity, maxHeight: 35 ,alignment: .leading)
-                .padding(8)
-                .background(AppColor.AppBlue.color.opacity(0.1))
-                .cornerRadius(10)
+                warningView()
             }
         }
         .padding()
@@ -79,13 +81,28 @@ public struct FieldValueView: View {
         .cornerRadius(10)
         .shadow()
     }
+	
+	private func warningView() -> some View {
+		HStack(spacing: 5) {
+			AppImage.warning.image
+				.resizable()
+				.frame(width: 16, height: 16)
+			
+			Text("Невозможно изменить. Для смены номера зарегистрируйтесь заново.")
+				.font(.system(size: 14))
+		}
+		.frame(maxWidth: .infinity, maxHeight: 35, alignment: .leading)
+		.padding(8)
+		.background(AppColor.AppBlue.color.opacity(0.1))
+		.cornerRadius(10)
+	}
 }
 
 #Preview {
-	FieldValueView(title: .constant("Революционная, 156"), 
+	FieldValueView(title: "Революционная, 156",
 				   imageView: AppImage.logoBarber.image,
 				   comment: "Топ братишка",
 				   description: nil,
 				   edit: true,
-				   warning: true)
+				   warning: false)
 }
