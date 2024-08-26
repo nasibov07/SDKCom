@@ -8,13 +8,9 @@
 import SwiftUI
 
 public struct SelectCityView: View {
-    @State public var title: String
-    @Binding public var description: PointModel?
-    
-    public init(title: String, description: Binding<PointModel?>) {
-        self.title = title
-        self._description = description
-    }
+	@Binding public var description: PointModel?
+	
+    public var title: String
     
     public var body: some View {
         VStack {
@@ -52,5 +48,5 @@ public struct SelectCityView: View {
 }
 
 #Preview {
-    SelectCityView(title: "Ujhj", description: .constant(PointModel()))
+	SelectCityView(description: .constant(PointModel()), title: "Ujhj")
 }

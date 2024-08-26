@@ -8,12 +8,16 @@
 import SwiftUI
 
 public struct ButtonView: View {
-    @Binding public var state: ButtonState
-    @State public var title: TitleObject
-    @State public var width: CGFloat
+    private let state: ButtonState
+    private let title: TitleObject
+    private let width: CGFloat
     
-    public init(state: Binding<ButtonState>, title: TitleObject, width: CGFloat) {
-        self._state = state
+    public init(
+		state: ButtonState,
+		title: TitleObject,
+		width: CGFloat
+	) {
+        self.state = state
         self.title = title
         self.width = width
     }
@@ -36,5 +40,7 @@ public struct ButtonView: View {
 }
 
 #Preview {
-    ButtonView(state: .constant(.activeBlue), title: .cancel, width: UIScreen.main.bounds.width - 40)
+    ButtonView(state: .activeBlue,
+			   title: .cancel,
+			   width: UIScreen.main.bounds.width - 40)
 }

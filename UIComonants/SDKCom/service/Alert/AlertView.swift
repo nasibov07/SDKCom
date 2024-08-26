@@ -6,14 +6,16 @@ public struct AlertView: ViewModifier {
     public func body(content: Content) -> some View {
         ZStack {
             content
-            if let _ = appAlert.alert { Alert() }
+            if appAlert.alert != nil { alert() }
         }
     }
     
-    private var blurView: some View { Color.gray .opacity(0.2) }
+	private var blurView: some View {
+		Color.gray.opacity(0.2)
+	}
     
     @ViewBuilder
-    private func Alert() -> some View {
+    private func alert() -> some View {
         ZStack {
             blurView
 
@@ -29,17 +31,21 @@ public struct AlertView: ViewModifier {
                         .font( .system(size: 14, weight: .medium) )
                         .padding(.leading).padding(.trailing)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(AppColor.AppWhite.color)
+                        .foregroundColor(AppColor.AppGray.color)
                         .padding(.bottom, 5)
                 }
                  
                 if let buttons = appAlert.alert?.buttons {
                     VStack(spacing: 0, content: {
                         ForEach(buttons, id: \.id) { button in
-                            AlertButtonView(with: button.appearance.title) {
+                            alertButtonView(with: button.appearance.title) {
                                 button.action()
-                                if button.appearance.type == .copy { UIPasteboard.general.string = appAlert.alert?.subTitle }
-                                if button.appearance.type == .cancel { appAlert.remove() }
+								if button.appearance.type == .copy {
+									UIPasteboard.general.string = appAlert.alert?.subTitle
+								}
+								if button.appearance.type == .cancel {
+									appAlert.remove()
+								}
                             }
                         }
                     })
@@ -54,7 +60,7 @@ public struct AlertView: ViewModifier {
     }
     
     @ViewBuilder
-    private func AlertButtonView(with label: String, performance: @escaping () -> Void) -> some View {
+    private func alertButtonView(with label: String, performance: @escaping () -> Void) -> some View {
         Button(action: performance) {
             VStack(spacing: 0) {
                 Divider()

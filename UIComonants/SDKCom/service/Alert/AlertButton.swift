@@ -4,6 +4,16 @@ public struct AlertButton: Identifiable {
     public var id = UUID().uuidString
     public let action: () -> ()
     public let appearance: AlertButtonAppearance
+	
+	public init(
+		id: String = UUID().uuidString,
+		action: @escaping () -> Void,
+		appearance: AlertButtonAppearance
+	) {
+		self.id = id
+		self.action = action
+		self.appearance = appearance
+	}
 }
 
 public enum AlertButtonAppearance {

@@ -8,26 +8,27 @@
 import SwiftUI
 
 struct FieldMessageCell: View {
-    @State var frame: (width: CGFloat, height: CGFloat)
+    var frame: (width: CGFloat, height: CGFloat)
     @Binding var object: ObjectContent
     
     var body: some View {
-        if ((object.message.state == .error) || (object.message.state == .success)) {
-            ZStack(content: {
-                HStack(content: {
+        if (object.message.state == .error) || (object.message.state == .success) {
+            ZStack {
+                HStack {
                     //MARK: -Икона сообщения
                     icons()
                     
                     //MARK: - Текст сообщения
                     textField()
-                }).frame(width: frame.width - 30, alignment: .leading)
-            })
+                }
+				.frame(width: frame.width - 30, alignment: .leading)
+            }
         }
     }
     
     private func icons() -> some View {
         ZStack {
-            HStack(spacing: 5, content: {
+            HStack(spacing: 5) {
                 if object.message.state == .error {
                     if let error = object.message.icon.error {
                         Image(error)
@@ -45,20 +46,19 @@ struct FieldMessageCell: View {
                             .foregroundColor(object.message.state == .success ? AppColor.AppGreen.color : AppColor.AppRed.color)
                     }
                 }
-            })
+            }
         }
     }
     
     private func textField() -> some View {
-        HStack(content: {
+        HStack {
             if let title = object.message.title {
                 Text(title)
                     .foregroundColor(object.message.state == .success ? AppColor.AppGreen.color : AppColor.AppRed.color)
                     .font(.system(size: 12))
                 Spacer()
             }
-            
-        })
+        }
     }
 }
 

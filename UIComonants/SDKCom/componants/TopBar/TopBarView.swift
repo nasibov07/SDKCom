@@ -8,36 +8,32 @@
 import SwiftUI
 
 public struct TopBarView: View {
-    @State public var title: String
-    @State public var showArrow: Bool
-    public let backButton: () -> ()
-    
-    public init(title: String, showArrow: Bool = true,backButton: @escaping () -> Void) {
-        self.title = title
-        self.showArrow = showArrow
-        self.backButton = backButton
-    }
-    
-    public var body: some View {
-        VStack(spacing: 20){
-            ZStack {
-                if showArrow { arrowScreen() }
-                logoScreen()
-            }
-            
-            titleScreen()
-        }
-        .frame(width: getWidth())
-    }
-    
-    private func arrowScreen() -> some View {
-        HStack {
-            Image(systemName: "chevron.left")
-                .padding()
-                .onTapGesture { backButton() }
-            Spacer()
-        }
-    }
+	private let title: String
+	private let backButton: VoidBlock?
+	
+	public init(
+		title: String,
+		backButton: VoidBlock? = nil
+	) {
+		self.title = title
+		self.backButton = backButton
+	}
+	
+	public var body: some View {
+		VStack(spacing: 20) {
+			ZStack {
+				if let backButton {
+					ArrowButtonView(
+						color: AppColor.AppDark.color,
+						action: backButton
+					)
+				}
+				logoScreen()
+			}
+			titleScreen()
+		}
+		.frame(width: getWidth())
+	}
     
     private func logoScreen() -> some View {
         AppImage.logoBarber.image
@@ -56,5 +52,5 @@ public struct TopBarView: View {
 }
 
 #Preview {
-    TopBarView(title: "Как вас зовут?") {  }
+	TopBarView(title: "Как вас зовут?") {}
 }

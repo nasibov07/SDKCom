@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-public struct SheetView: View {
+struct SheetView: View {
 	@Binding var isShow: Bool
-	var title: String
+	let title: String
 	var subTitle: String?
 	var buttons: [SheetViewButtonModel]?
     
-    public var body: some View {
-        VStack(alignment: .leading, content: {
-            VStack(alignment: .leading, spacing: 15, content: {
+    var body: some View {
+        VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 15) {
                 Spacer().frame(width: 1, height: 10)
                 
                 Text(title)
@@ -29,28 +29,28 @@ public struct SheetView: View {
                 Spacer()
                 
                 if let buttons = buttons {
-                    VStack(spacing: 10, content: {
+                    VStack(spacing: 10) {
                         ForEach(buttons, id: \.id) { button in
-                            Button(action: { 
+                            Button(action: {
                                 button.action()
                                 isShow = false
                             }, label: {
-                                ButtonView(state: .constant(button.state),
+                                ButtonView(state: button.state,
                                            title: button.appearance,
                                            width: getWidth() - 40)
                             })
                         }
-                    })
+                    }
                 }
-            })
+            }
             .frame(width: getWidth() - 40, alignment: .leading)
             .padding()
             Spacer()
-        })
+        }
         .frame(maxWidth: .infinity)
         .background(AppColor.AppWhite.color)
         .cornerRadius(15)
-        .overlay(content: {
+        .overlay {
             VStack {
                 HStack {
                     Spacer()
@@ -63,7 +63,7 @@ public struct SheetView: View {
                 }
                 Spacer()
             }
-        })
+        }
     }
 }
 

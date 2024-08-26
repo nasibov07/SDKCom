@@ -8,10 +8,10 @@
 import Foundation
  
 public struct SheetViewModel {
-   	var title: String
-    var subTitle: String? = nil
-    var isShow: Bool = false
-    var buttons: [SheetViewButtonModel]? = nil
+   	public var title: String
+	public var subTitle: String? = nil
+	public var isShow: Bool = false
+	public var buttons: [SheetViewButtonModel]? = nil
 	
 	public init(
 		title: String,
@@ -28,7 +28,19 @@ public struct SheetViewModel {
 
 public struct SheetViewButtonModel: Identifiable {
     public var id = UUID().uuidString
-    let action: () -> ()
     let state: ButtonState
     let appearance: TitleObject
+	let action: () -> ()
+	
+	public init(
+		id: String = UUID().uuidString, 
+		state: ButtonState,
+		appearance: TitleObject,
+		action: @escaping () -> Void
+	) {
+		self.id = id
+		self.state = state
+		self.appearance = appearance
+		self.action = action
+	}
 }

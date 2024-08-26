@@ -11,11 +11,6 @@ public struct SelectedCell: View {
     @Binding public var title: PointModel?
     @Binding public var description: PointModel?
     
-    public init(title: Binding<PointModel?>, description: Binding<PointModel?>) {
-        self._title = title
-        self._description = description
-    }
-    
     public var body: some View {
         VStack {
             HStack {
@@ -55,6 +50,7 @@ public struct SelectedCell: View {
 }
 
 #Preview {
-    SelectedCell(title: .constant(PointModel(value: "значение", name: "имя")),
-                 description: .constant(PointModel(value: "значение", name: "имя")))
+    SelectedCell(
+		title: .constant(PointModel(value: "значение", name: "имя")),
+		description: .constant(PointModel(value: "значение", name: "имя")))
 }
