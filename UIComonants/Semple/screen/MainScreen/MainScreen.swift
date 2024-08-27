@@ -16,7 +16,7 @@ struct MainScreen: View {
 		case chequeNumberView
 		case listValue
 		case sheetModifier
-		case alertModifire
+		case alertModifier
 		
 		var id: Int {
 			hashValue
@@ -53,8 +53,8 @@ struct MainScreen: View {
 					selectedSheet = .sheetModifier
 				}
 				
-				Button("Кнопка | AlertModifire") {
-					selectedSheet = .alertModifire
+				Button("Кнопка | AlertModifier") {
+					selectedSheet = .alertModifier
 				}
 			}
 		}
@@ -70,8 +70,8 @@ struct MainScreen: View {
 				ListValueScreen()
 			case .sheetModifier:
 				SheetModifierScreen()
-			case .alertModifire:
-				AlertModifireScreen()
+			case .alertModifier:
+				AlertModifierScreen()
 			}
 		}
 	}

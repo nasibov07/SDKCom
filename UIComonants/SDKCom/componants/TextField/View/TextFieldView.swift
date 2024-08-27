@@ -80,7 +80,7 @@ public struct CustomTextFieldView: View {
 		HStack {
 			Text(object.title)
 				.font(.system(size: 12))
-				.foregroundColor(.gray)
+				.foregroundStyle(.gray)
 			Spacer()
 		}
 		.frame(height: 15, alignment: .leading)
@@ -106,7 +106,7 @@ public struct CustomTextFieldView: View {
 				CustomTextFieldVM.onChange(in: &object, old: &textCount)
 			}
 			.disableAutocorrection(true)
-			.foregroundColor(AppColor.AppDark.color)
+			.foregroundStyle(AppColor.AppDark.color)
 			.keyboardType(object.keyboardType)
 			.focused($amountIsFocused)
 			.textInputAutocapitalization(.never)
@@ -119,7 +119,7 @@ public struct CustomTextFieldView: View {
 				CustomTextFieldVM.onChange(in: &object, old: &textCount)
 			}
 			.disableAutocorrection(true)
-			.foregroundColor(AppColor.AppDark.color)
+			.foregroundStyle(AppColor.AppDark.color)
 			.keyboardType(object.keyboardType)
 			.focused($amountIsFocused)
 			.textInputAutocapitalization(.never)

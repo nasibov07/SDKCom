@@ -34,7 +34,7 @@ struct FieldMessageCell: View {
                         Image(error)
                             .resizable()
                             .frame(width: 10, height: 10)
-                            .foregroundColor(object.message.state == .error ? AppColor.AppGreen.color : AppColor.AppRed.color)
+                            .foregroundStyle(object.message.state == .error ? AppColor.AppGreen.color : AppColor.AppRed.color)
                     }
                 }
                 
@@ -43,7 +43,7 @@ struct FieldMessageCell: View {
                         Image(success)
                             .resizable()
                             .frame(width: 10, height: 10)
-                            .foregroundColor(object.message.state == .success ? AppColor.AppGreen.color : AppColor.AppRed.color)
+                            .foregroundStyle(object.message.state == .success ? AppColor.AppGreen.color : AppColor.AppRed.color)
                     }
                 }
             }
@@ -54,7 +54,7 @@ struct FieldMessageCell: View {
         HStack {
             if let title = object.message.title {
                 Text(title)
-                    .foregroundColor(object.message.state == .success ? AppColor.AppGreen.color : AppColor.AppRed.color)
+                    .foregroundStyle(object.message.state == .success ? AppColor.AppGreen.color : AppColor.AppRed.color)
                     .font(.system(size: 12))
                 Spacer()
             }

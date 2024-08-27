@@ -9,6 +9,10 @@ import SwiftUI
 
 public extension View {
 	func sheetModifier(isShow: Binding<Bool>, sheetData: SheetViewModel) -> some View {
-		self.modifier(SheetModifier(isShow: isShow, sheetData: sheetData))
+		modifier(SheetModifier(isShow: isShow, sheetData: sheetData))
+	}
+	
+	func alertModifier(isShow: Binding<Bool>, alertData: AlertViewModel) -> some View {
+		modifier(AlertModifier(isShow: isShow, alertData: alertData))
 	}
 }

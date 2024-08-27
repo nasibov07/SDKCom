@@ -32,7 +32,7 @@ public struct ButtonView: View {
         }
         .bold()
         .font(.system(size: 14))
-        .foregroundColor(state.foreground)
+        .foregroundStyle(state.foreground)
         .frame(width: width, height: 40)
         .background(state.background)
         .cornerRadius(12)
