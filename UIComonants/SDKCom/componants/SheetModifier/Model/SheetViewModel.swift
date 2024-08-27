@@ -8,10 +8,10 @@
 import Foundation
  
 public struct SheetViewModel {
-   	public var title: String
-	public var subTitle: String? = nil
-	public var isShow: Bool = false
-	public var buttons: [SheetViewButtonModel]? = nil
+   	public let title: String
+	public var subTitle: String?
+	public var isShow: Bool
+	public var buttons: [SheetViewButtonModel]?
 	
 	public init(
 		title: String,

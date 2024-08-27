@@ -36,7 +36,7 @@ public struct AuthTimer: View {
 					clockView()
                 }
             }
-            .foregroundColor(countTimer.canSend.foregroundColor)
+            .foregroundStyle(countTimer.canSend.foregroundColor)
             .font(.system(size: 14))
             .multilineTextAlignment(.leading)
             .frame(width: getWidth() - 40, height: 30, alignment: .center)

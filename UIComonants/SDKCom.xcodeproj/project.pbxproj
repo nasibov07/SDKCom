@@ -19,7 +19,9 @@
 		066BC1652C655BFF0055E150 /* View+modifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BC1642C655BFF0055E150 /* View+modifire.swift */; };
 		066BC2E82C71EF900055E150 /* MapAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BC2E72C71EF900055E150 /* MapAppView.swift */; };
 		066BC2EA2C72901B0055E150 /* PhoneFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BC2E92C72901B0055E150 /* PhoneFormat.swift */; };
-		06B645FB2C78BBB500729E0D /* AlertModifireScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B645FA2C78BBB500729E0D /* AlertModifireScreen.swift */; };
+		06B645FB2C78BBB500729E0D /* AlertModifierScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B645FA2C78BBB500729E0D /* AlertModifierScreen.swift */; };
+		06B646022C7CEAD000729E0D /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B646012C7CEAD000729E0D /* AlertModifier.swift */; };
+		06B646052C7CEBB200729E0D /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B646042C7CEBB200729E0D /* AlertViewModel.swift */; };
 		95060B3A2C62418400942EFA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95060B392C62418400942EFA /* TimerViewModel.swift */; };
 		95060B3C2C62419C00942EFA /* TimerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95060B3B2C62419C00942EFA /* TimerModels.swift */; };
 		958174F82C5B8C260071C638 /* SDKCom.docc in Sources */ = {isa = PBXBuildFile; fileRef = 958174F72C5B8C260071C638 /* SDKCom.docc */; };
@@ -49,9 +51,8 @@
 		9581755A2C5B8F8A0071C638 /* ex+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958175582C5B8F8A0071C638 /* ex+View.swift */; };
 		9581755D2C5B91090071C638 /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581755B2C5B91090071C638 /* Shake.swift */; };
 		958175612C5B91520071C638 /* SelectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958175602C5B91520071C638 /* SelectModels.swift */; };
-		9581757A2C5B9A690071C638 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958175762C5B9A690071C638 /* AlertButton.swift */; };
+		9581757A2C5B9A690071C638 /* AlertButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958175762C5B9A690071C638 /* AlertButtonModel.swift */; };
 		9581757B2C5B9A690071C638 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958175772C5B9A690071C638 /* AlertView.swift */; };
-		9581757C2C5B9A690071C638 /* AppAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958175782C5B9A690071C638 /* AppAlert.swift */; };
 		958175862C5B9B340071C638 /* ex+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581757E2C5B9B340071C638 /* ex+Double.swift */; };
 		958175872C5B9B340071C638 /* custonFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 958175802C5B9B340071C638 /* custonFont.ttf */; };
 		958175892C5B9B340071C638 /* ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958175842C5B9B340071C638 /* ex+String.swift */; };
@@ -109,7 +110,9 @@
 		066BC1642C655BFF0055E150 /* View+modifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+modifire.swift"; sourceTree = "<group>"; };
 		066BC2E72C71EF900055E150 /* MapAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppView.swift; sourceTree = "<group>"; };
 		066BC2E92C72901B0055E150 /* PhoneFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormat.swift; sourceTree = "<group>"; };
-		06B645FA2C78BBB500729E0D /* AlertModifireScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModifireScreen.swift; sourceTree = "<group>"; };
+		06B645FA2C78BBB500729E0D /* AlertModifierScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModifierScreen.swift; sourceTree = "<group>"; };
+		06B646012C7CEAD000729E0D /* AlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
+		06B646042C7CEBB200729E0D /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
 		95060B392C62418400942EFA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		95060B3B2C62419C00942EFA /* TimerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModels.swift; sourceTree = "<group>"; };
 		958174F32C5B8C260071C638 /* SDKCom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDKCom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,9 +143,8 @@
 		958175582C5B8F8A0071C638 /* ex+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ex+View.swift"; sourceTree = "<group>"; };
 		9581755B2C5B91090071C638 /* Shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
 		958175602C5B91520071C638 /* SelectModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModels.swift; sourceTree = "<group>"; };
-		958175762C5B9A690071C638 /* AlertButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
+		958175762C5B9A690071C638 /* AlertButtonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertButtonModel.swift; sourceTree = "<group>"; };
 		958175772C5B9A690071C638 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		958175782C5B9A690071C638 /* AppAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAlert.swift; sourceTree = "<group>"; };
 		9581757E2C5B9B340071C638 /* ex+Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ex+Double.swift"; sourceTree = "<group>"; };
 		958175802C5B9B340071C638 /* custonFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = custonFont.ttf; sourceTree = "<group>"; };
 		958175842C5B9B340071C638 /* ex+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ex+String.swift"; sourceTree = "<group>"; };
@@ -206,6 +208,15 @@
 				066BC2E72C71EF900055E150 /* MapAppView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		06B646032C7CEBA400729E0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				958175762C5B9A690071C638 /* AlertButtonModel.swift */,
+				06B646042C7CEBB200729E0D /* AlertViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		95060B362C62409100942EFA /* View */ = {
@@ -518,9 +529,9 @@
 		958175792C5B9A690071C638 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				958175762C5B9A690071C638 /* AlertButton.swift */,
+				06B646032C7CEBA400729E0D /* Model */,
 				958175772C5B9A690071C638 /* AlertView.swift */,
-				958175782C5B9A690071C638 /* AppAlert.swift */,
+				06B646012C7CEAD000729E0D /* AlertModifier.swift */,
 			);
 			name = Alert;
 			path = ../service/Alert;
@@ -601,7 +612,7 @@
 				0635DC6B2C767CDA009F4B92 /* ChequeNumberScreen.swift */,
 				0635DC6D2C768A69009F4B92 /* ListValueScreen.swift */,
 				0635DC6F2C769F4A009F4B92 /* SheetModifierScreen.swift */,
-				06B645FA2C78BBB500729E0D /* AlertModifireScreen.swift */,
+				06B645FA2C78BBB500729E0D /* AlertModifierScreen.swift */,
 				95BA7DB12C62473E0006C9A4 /* MainScreen */,
 			);
 			path = screen;
@@ -794,10 +805,11 @@
 				9581755A2C5B8F8A0071C638 /* ex+View.swift in Sources */,
 				958175382C5B8CD20071C638 /* ChequeNumberView.swift in Sources */,
 				9581753F2C5B8CD20071C638 /* SheetModifier.swift in Sources */,
+				06B646022C7CEAD000729E0D /* AlertModifier.swift in Sources */,
 				958174F82C5B8C260071C638 /* SDKCom.docc in Sources */,
-				9581757C2C5B9A690071C638 /* AppAlert.swift in Sources */,
 				958175892C5B9B340071C638 /* ex+String.swift in Sources */,
 				9581753C2C5B8CD20071C638 /* SelectCityView.swift in Sources */,
+				06B646052C7CEBB200729E0D /* AlertViewModel.swift in Sources */,
 				958175502C5B8DA90071C638 /* AppImage.swift in Sources */,
 				95060B3A2C62418400942EFA /* TimerViewModel.swift in Sources */,
 				958175612C5B91520071C638 /* SelectModels.swift in Sources */,
@@ -808,7 +820,7 @@
 				958175412C5B8CD20071C638 /* TextViewModel.swift in Sources */,
 				958175482C5B8CD20071C638 /* TopBarView.swift in Sources */,
 				958175442C5B8CD20071C638 /* CustomTextFieldVM.swift in Sources */,
-				9581757A2C5B9A690071C638 /* AlertButton.swift in Sources */,
+				9581757A2C5B9A690071C638 /* AlertButtonModel.swift in Sources */,
 				958175462C5B8CD20071C638 /* TitleObject.swift in Sources */,
 				066BC2EA2C72901B0055E150 /* PhoneFormat.swift in Sources */,
 				958175372C5B8CD20071C638 /* ButtonView.swift in Sources */,
@@ -848,7 +860,7 @@
 				95BA7D9E2C6246E50006C9A4 /* SempleApp.swift in Sources */,
 				0635DC5E2C761280009F4B92 /* ButtonViewScreen.swift in Sources */,
 				0635DC602C762327009F4B92 /* CapBarViewScreen.swift in Sources */,
-				06B645FB2C78BBB500729E0D /* AlertModifireScreen.swift in Sources */,
+				06B645FB2C78BBB500729E0D /* AlertModifierScreen.swift in Sources */,
 				0635DC6C2C767CDA009F4B92 /* ChequeNumberScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

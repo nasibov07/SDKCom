@@ -1,18 +1,18 @@
 import Foundation
 
-public struct AlertButton: Identifiable {
+public struct AlertButtonModel: Identifiable {
     public var id = UUID().uuidString
-    public let action: () -> ()
     public let appearance: AlertButtonAppearance
+	public let action: () -> ()
 	
 	public init(
 		id: String = UUID().uuidString,
-		action: @escaping () -> Void,
-		appearance: AlertButtonAppearance
+		appearance: AlertButtonAppearance,
+		action: @escaping () -> Void
 	) {
 		self.id = id
-		self.action = action
 		self.appearance = appearance
+		self.action = action
 	}
 }
 
